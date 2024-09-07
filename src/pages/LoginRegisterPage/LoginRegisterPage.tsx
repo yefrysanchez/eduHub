@@ -1,11 +1,20 @@
-import Login from "../../components/Login/Login"
+import { useState } from "react";
+import Login from "../../components/Login/Login";
+import Register from "../../components/Register/Register";
+
 
 const LoginRegisterPage = () => {
-  return (
-    <div className="bg-blue-800 h-screen flex justify-center items-center px-2">
-        <Login />
-    </div>
-  )
-}
+  const [isRegistered, setIsRegistered] = useState(true);
 
-export default LoginRegisterPage
+  return (
+    <div className="bg-blue-800 min-h-screen flex justify-center items-center p-2">
+      {isRegistered ? (
+        <Login setIsRegistered={setIsRegistered} />
+      ) : (
+        <Register setIsRegistered={setIsRegistered} />
+      )}
+    </div>
+  );
+};
+
+export default LoginRegisterPage;
