@@ -14,7 +14,7 @@ const getDaysInMonth = (year: number, month: number): (number | null)[] => {
 
 const Calendar: React.FC<CalendarProps> = ({ onMonthChange, currentDate }) => {
   const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"];
   
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
@@ -24,7 +24,7 @@ const Calendar: React.FC<CalendarProps> = ({ onMonthChange, currentDate }) => {
   const firstDay = new Date(year, month, 1).getDay();
 
   return (
-    <div className="p-4 bg-white shadow-md rounded-md mx-auto min-w-[280px] max-w-[390px]">
+    <div className="p-4 bg-white shadow-md rounded-md mx-auto min-w-[250px] max-w-[390px]">
       <div className="flex justify-between items-center mb-4">
         <button onClick={() => {
           const newMonth = month - 1;
