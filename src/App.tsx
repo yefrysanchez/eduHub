@@ -8,7 +8,7 @@ function App() {
     <div className="font-inter relative flex flex-col-reverse lg:flex-row">
       <Navbar />
       <HomePage />
-   
+      <CalendarContainer />
     </div>
   );
 }
