@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { CiUser } from "react-icons/ci";
 import { CiLock } from "react-icons/ci";
 import { fadeUp } from "../../animations/animations";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import AlertError from "../Alerts/AlertError";
 
 type FuncProp = {
@@ -15,9 +15,18 @@ const Login: React.FC<FuncProp> = ({ setIsRegistered }) => {
 
 const [error, setError] = useState<string | null>(null)
 
+const handleSubmit = async (e:FormEvent) => {
+  e.preventDefault()
+    try {
+      console.log("logged in")
+    } catch (error) {
+      setError(`${error}`)
+    }
+}
+
   return (
     <motion.section variants={fadeUp} animate="enter" initial="initial" className="bg-gray-100 rounded-xl p-8 shadow-lg">
-      <form className="text-center mb-4">
+      <form onSubmit={handleSubmit} className="text-center mb-4">
         <h1 className="text-3xl font-bold text-center mb-4">Login</h1>
         <h2 className="mb-8 text-gray-700">
           Please enter your Login and your Password
